@@ -2,6 +2,12 @@
   "name": "vue-batteries",
   "version": "0.1.0",
   "author": "Samuel Girardin",
+  "description": "A renderless not opiniated components and directive library to quickly build UI with Vue.js",
+  "repository": "https://github.com/girardinsamuel/vue-batteries.git",
+  "bugs": "https://github.com/girardinsamuel/vue-batteries/issues",
+  "contributors": [
+    "Samuel Girardin <samuelgirardin@gmail.com>"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

@@ -1,6 +1,6 @@
 # Introduction
 
-`VueBatteries` plugin is plugin for [Vue.js](http://vuejs.org).
+`vue-batteries` plugin is a plugin for [Vue.js](http://vuejs.org).
 Features include:
 
 - Feature1

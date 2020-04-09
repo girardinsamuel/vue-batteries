@@ -2,7 +2,6 @@
 
 > We will be using [ES2015](https://github.com/lukehoban/es6features) in the code samples in the guide.
 
-
 ## HTML
 
 ```html
@@ -20,13 +19,13 @@
 // If using a module system (e.g. via Vue CLI), import Vue and vue-batteries and then call Vue.use(vue-batteries).
 // import Vue from 'vue'
 // import vue-batteries from 'vue-batteries'
-// 
+//
 // Vue.use(vue-batteries)
 
 // NOTE: here the example
 
 // Now the app has started!
-new Vue({ }).$mount('#app')
+new Vue({}).$mount('#app')
 ```
 
 Output the following:

@@ -1,4 +1,4 @@
-const version = "__VERSION__";
+const version = '__VERSION__'
 
 const install = Vue => {
   /*
@@ -7,22 +7,22 @@ const install = Vue => {
    */
 
   Vue.prototype.$add = (a, b) => {
-    return a + b;
-  };
+    return a + b
+  }
 
   /*
    * NOTE:
    *  somthing implementation here ...
    */
-};
+}
 
 const plugin = {
   install,
   version
-};
+}
 
-export default plugin;
+export default plugin
 
-if (typeof window !== "undefined" && window.Vue) {
-  window.Vue.use(plugin);
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(plugin)
 }
