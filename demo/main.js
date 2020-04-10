@@ -1,8 +1,10 @@
 import Vue from 'vue'
-import App from '~entry'
-import plugin from '../src/index'
+import VueCompositionApi from '@vue/composition-api'
+import App from './App.vue'
+Vue.use(VueCompositionApi)
 
-Vue.use(plugin)
+import plugin from '../src/index'
+Vue.use(plugin, { styling: true, prefix: '' })
 
 Vue.config.productionTip = false
 

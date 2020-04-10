@@ -1,19 +1,28 @@
 const version = '__VERSION__'
 
-const install = Vue => {
-  /*
-   * NOTE:
-   *   if you need to extend Vue contstructor, you can extend it in here.
-   */
+import * as components from './components'
+import { configure, getConfig } from './config'
 
-  Vue.prototype.$add = (a, b) => {
-    return a + b
+// for classic plugin use
+const install = (Vue, userConfig = {}) => {
+  if (install.installed) {
+    return
   }
 
-  /*
-   * NOTE:
-   *  somthing implementation here ...
-   */
+  install.installed = true
+
+  // Save configuration
+  configure(userConfig)
+  const currentConfig = getConfig()
+  // Choose which components to register: all, none or a specific list. The component prefix
+  // is configurable
+  const componentsToRegister = userConfig.components || Object.keys(components)
+  componentsToRegister.forEach(componentName => {
+    Vue.component(
+      componentName.replace('Cell', currentConfig.prefix),
+      components[componentName]
+    )
+  })
 }
 
 const plugin = {
@@ -21,8 +30,15 @@ const plugin = {
   version
 }
 
+// for Vue.use()
 export default plugin
+// for tree-shakable use
+export * from './components/api'
+export * from './components/mixins'
+export { configure }
+export * from './components'
 
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(plugin)
-}
+// for browser use
+// if (typeof window !== 'undefined' && window.Vue) {
+//   window.Vue.use(plugin)
+// }
