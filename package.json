@@ -39,6 +39,7 @@
     "@vue/cli-service": "~4.3.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/test-utils": "1.0.0-beta.31",
+    "@vuepress/plugin-active-header-links": "^1.4.0",
     "babel-eslint": "^10.1.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-plugin-syntax-jsx": "^6.18.0",
@@ -51,7 +52,8 @@
     "vue": "^2.6.11",
     "vue-cli-plugin-p11n": "~0.4.0",
     "vue-cli-plugin-tailwind": "~1.2.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vuepress-plugin-playground": "^2.0.0"
   },
   "bugs": "https://github.com/girardinsamuel/vue-batteries/issues",
   "contributors": [

@@ -1,5 +1,10 @@
 module.exports = {
-  plugins: [require('./plugin.js')],
+  base: '/vue-batteries/',
+  plugins: [
+    require('./plugin.js'),
+    require('vuepress-plugin-playground'),
+    '@vuepress/active-header-links'
+  ],
   locales: {
     '/': {
       lang: 'en-US',
@@ -8,8 +13,9 @@ module.exports = {
     }
   },
   themeConfig: {
-    repo: '/girardinsamuel/vue-batteries',
+    repo: 'girardinsamuel/vue-batteries',
     docsDir: 'docs',
+    logo: 'logo.png',
     locales: {
       '/': {
         label: 'English',
@@ -19,10 +25,33 @@ module.exports = {
           {
             text: 'Release Notes',
             link: 'https://github.com/girardinsamuel/vue-batteries/releases'
+          },
+          {
+            text: 'Contribute',
+            link:
+              'https://github.com/girardinsamuel/vue-batteries/CONTRIBUTING.md'
+          },
+          {
+            text: 'Languages',
+            ariaLabel: 'Language Menu',
+            items: [
+              { text: 'Chinese', link: '/language/chinese/' },
+              { text: 'Japanese', link: '/language/japanese/' }
+            ]
           }
         ],
         sidebar: ['/installation.md', '/started.md']
       }
-    }
+    },
+    displayAllHeaders: true,
+    sidebarDepth: 1,
+    searchMaxSuggestions: 10,
+    searchPlaceholder: 'Search...',
+    lastUpdated: 'Last Updated',
+    smoothScroll: true,
+    // defaults to false, set to true to enable
+    editLinks: true,
+    // custom text for edit link. Defaults to "Edit this page"
+    editLinkText: 'Help us improve this page!'
   }
 }
