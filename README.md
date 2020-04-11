@@ -2,7 +2,7 @@
 
 Don't use this project now as it's in early development phase. It's coming soon :).
 
-![](https://github.com/girardinsamuel/vue-batteries/workflows/Test%20library/badge.svg)
+![Unit tests](https://github.com/girardinsamuel/vue-batteries/workflows/Test%20library/badge.svg)
 
 ## Project setup
 
