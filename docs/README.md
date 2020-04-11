@@ -28,6 +28,6 @@ export default {
 
 ### Badge <Badge text="beta" type="warning"/> <Badge text="default theme"/>
 
-<<< @/demo/DemoWithSlots.vue
+<!-- <<< @/demo/DemoWithSlots.vue -->
 
 [Get started](./started/) or play with the [demo](https://github.com//vue-batteries/tree/dev/demo) (see [`README.md`](https://github.com//vue-batteries/) to run them).
