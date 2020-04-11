@@ -15,7 +15,7 @@ module.exports = {
   themeConfig: {
     repo: 'girardinsamuel/vue-batteries',
     docsDir: 'docs',
-    logo: 'logo.png',
+    logo: '/assets/img/logo.png',
     locales: {
       '/': {
         label: 'English',
