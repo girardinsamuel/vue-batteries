@@ -1,13 +1,8 @@
 {
   "name": "vue-batteries",
   "version": "0.1.0",
-  "author": "Samuel Girardin",
   "description": "A renderless not opiniated components and directive library to quickly build UI with Vue.js",
-  "repository": "https://github.com/girardinsamuel/vue-batteries.git",
-  "bugs": "https://github.com/girardinsamuel/vue-batteries/issues",
-  "contributors": [
-    "Samuel Girardin <samuelgirardin@gmail.com>"
-  ],
+  "author": "Samuel Girardin",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -33,7 +28,9 @@
   "dependencies": {
     "@vue/composition-api": "^0.5.0",
     "core-js": "^3.6.4",
-    "lodash.merge": "^4.6.2"
+    "lodash.merge": "^4.6.2",
+    "tailwindcss": "^1.2.0",
+    "vue-router": "^3.1.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",
@@ -53,8 +50,14 @@
     "prettier": "^1.19.1",
     "vue": "^2.6.11",
     "vue-cli-plugin-p11n": "~0.4.0",
+    "vue-cli-plugin-tailwind": "~1.2.0",
     "vue-template-compiler": "^2.6.11"
   },
+  "bugs": "https://github.com/girardinsamuel/vue-batteries/issues",
+  "contributors": [
+    "Samuel Girardin <samuelgirardin@gmail.com>"
+  ],
   "jsdelivr": "dist/vue-batteries.umd.min.js",
+  "repository": "https://github.com/girardinsamuel/vue-batteries.git",
   "sideeffects": false
 }

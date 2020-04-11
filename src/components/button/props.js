@@ -1,8 +1,18 @@
 export default {
   props: {
-    type: {
+    mode: {
       type: String,
-      default: 'primary'
+      default: 'fill',
+      validator: function(value) {
+        return ['fill', 'outline', 'link'].indexOf(value) !== -1
+      }
+    },
+    variant: {
+      type: String,
+      default: null,
+      validator: function(value) {
+        return value !== 'root'
+      }
     },
     leadingIcon: {
       type: String,
@@ -25,6 +35,10 @@ export default {
       default: false
     },
     classes: {
+      type: Object,
+      default: () => {}
+    },
+    to: {
       type: Object,
       default: () => {}
     }

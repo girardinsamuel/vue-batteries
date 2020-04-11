@@ -1,0 +1,49 @@
+<template functional>
+  <svg
+    :class="[
+      data.staticClass || data.class,
+      props.loading || props.name == 'loading' ? 'spin' : ''
+    ]"
+    v-on="listeners"
+    v-bind="data.attrs"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path fill-rule="evenodd" :d="$options.methods.getPath(props)" />
+  </svg>
+</template>
+
+<script>
+import { getConfig } from '../../config'
+
+export default {
+  name: 'Icon',
+  props: {
+    name: String,
+    loading: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    getPath(props) {
+      return getConfig().icons[props.name]
+    }
+  }
+}
+</script>
+
+<style>
+@keyframes loading-spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin {
+  animation: loading-spinner 1s linear infinite;
+}
+</style>

@@ -1,10 +1,10 @@
 <template>
-  <Alert v-bind="$attrs">
+  <CellAlert v-bind="$attrs">
     <slot />
     <template #close="{close}">
       <a @click="close">X</a>
     </template>
-  </Alert>
+  </CellAlert>
 </template>
 
 <script>
