@@ -16,16 +16,11 @@
 
 <script>
 import { getConfig } from '../../config'
+import iconProps from './props.js'
 
 export default {
   name: 'Icon',
-  props: {
-    name: String,
-    loading: {
-      type: Boolean,
-      default: false
-    }
-  },
+  mixins: [iconProps],
   methods: {
     getPath(props) {
       return getConfig().icons[props.name]

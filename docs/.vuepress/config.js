@@ -1,7 +1,6 @@
 module.exports = {
   base: '/vue-batteries/',
   plugins: [
-    require('./plugin.js'),
     require('vuepress-plugin-playground'),
     '@vuepress/active-header-links'
   ],
@@ -20,7 +19,7 @@ module.exports = {
       '/': {
         label: 'English',
         selectText: 'Languages',
-        editLinkText: 'Edit this page on GitHub',
+        editLinkText: '🤚 Help us to improve this page',
         nav: [
           {
             text: 'Release Notes',
@@ -35,12 +34,23 @@ module.exports = {
             text: 'Languages',
             ariaLabel: 'Language Menu',
             items: [
-              { text: 'Chinese', link: '/language/chinese/' },
-              { text: 'Japanese', link: '/language/japanese/' }
+              { text: 'English', link: '/language/english/' },
+              { text: 'French', link: '/language/french/' }
             ]
           }
         ],
-        sidebar: ['/installation.md', '/started.md']
+        sidebar: [
+          '/installation.md',
+          '/started.md',
+          {
+            title: 'Components',
+            collapsable: true,
+            path: '/components/',
+            children: ['/components/alert']
+          },
+          '/utilities.md',
+          '/roadmap.md'
+        ]
       }
     },
     displayAllHeaders: true,
@@ -50,8 +60,11 @@ module.exports = {
     lastUpdated: 'Last Updated',
     smoothScroll: true,
     // defaults to false, set to true to enable
-    editLinks: true,
-    // custom text for edit link. Defaults to "Edit this page"
-    editLinkText: 'Help us improve this page!'
+    editLinks: true
+  },
+  markdown: {
+    extendMarkdown: md => {
+      md.use(require('markdown-it-task-lists'), { enabled: true })
+    }
   }
 }

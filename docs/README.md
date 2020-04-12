@@ -2,31 +2,25 @@
 editLink: false # Will overwrite 'editLinks' from themeConfig
 ---
 
-# Introduction
+# Vue Batteries
 
-`vue-batteries` plugin is a plugin for [Vue.js](http://vuejs.org).
+![Vue Batteries logo](/vue-batteries/assets/img/logo.png)
+
+`vue-batteries` <Badge text="alpha"/> is a plugin for [Vue.js](https://vuejs.org). It is a functional components and utilities framework to ease components development and avoid to reinvent the wheel each time. It plays nicely with [Tailwind CSS](https://tailwindcss.com) but can also be used with any CSS definitions.
+
 Features include:
 
-- Feature1
-- Feature2
-- :tada:
+- Tree-shakable components imports
+- Global style configuration with themes
+- Global style disabling
+- Use only functional part of components without HTML structure
+- Renderless components
 
-```vue
-<template>
-  <button @click="count++">Clicked: {{ count + 1 }} times.</button>
-</template>
+If you want a fully-featured UI framework like BootstrapVue, Vuetify or others this plugin might not be for you.
 
-<script>
-export default {
-  data() {
-    return { count: 1 }
-  }
-}
-</script>
-<style></style>
-```
+But if you want low-level components with customizable CSS and HTML structure you're at the right place ! 😃
 
-### Badge <Badge text="beta" type="warning"/> <Badge text="default theme"/>
+### Badge <Badge text="beta" type="warning"/>
 
 <!-- <<< @/demo/DemoWithSlots.vue -->
 

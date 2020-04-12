@@ -10,6 +10,7 @@
     "lint": "vue-cli-service lint",
     "demo": "vue-cli-service demo",
     "docs": "npm run docs:serve",
+    "predocs:build": "node generateDocAPI.js",
     "docs:build": "NODE_ENV=production vue-cli-service docs --mode build",
     "docs:serve": "vue-cli-service docs --mode serve",
     "prepublish": "vue-cli-service lint && vue-cli-service docs --mode build && vue-cli-service build",
@@ -53,7 +54,9 @@
     "vue-cli-plugin-p11n": "~0.4.0",
     "vue-cli-plugin-tailwind": "~1.2.0",
     "vue-template-compiler": "^2.6.11",
-    "vuepress-plugin-playground": "^2.0.0"
+    "vuepress-plugin-playground": "^2.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "@vuedoc/md": "^1.6.0"
   },
   "bugs": "https://github.com/girardinsamuel/vue-batteries/issues",
   "contributors": [
