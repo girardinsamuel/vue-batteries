@@ -2,6 +2,9 @@ import VueBatteries from '../../src'
 import VueCompositionApi from '@vue/composition-api'
 const { version } = require('../../package.json')
 
+import 'prismjs'
+
+import * as examples from '../../demo/examples'
 // install vue-batteries plugin in Vue.js doc apps to be able to
 // import components in documentation
 
@@ -16,7 +19,15 @@ export default ({
   // install plugin
   Vue.use(VueCompositionApi)
   Vue.use(VueBatteries, {
-    styling: true
+    styling: true,
+    copy: true,
+    filters: {
+      truncate: true,
+      uppercase: true,
+      lowercase: true,
+      capitalize: true,
+      slugify: true
+    }
   })
   // add version
   Vue.mixin({
@@ -25,5 +36,9 @@ export default ({
         return version
       }
     }
+  })
+  // register all examples
+  Object.keys(examples).forEach(exampleName => {
+    Vue.component(exampleName, examples[exampleName])
   })
 }

@@ -33,7 +33,7 @@
     </slot>
   </router-link>
 
-  <button v-else type="button" :class="buttonClass" :disabled="disabled">
+  <button v-else :class="buttonClass" :disabled="disabled" v-on="$listeners">
     <slot
       name="leadingIcon"
       :leadingIcon="leadingIcon"
@@ -63,8 +63,8 @@
 </template>
 
 <script>
-// <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-//   <svg class="fill-current w-4 h-4 mr-2"></svg>
+// <button class="inline-flex items-center px-4 py-2 font-bold text-gray-800 bg-gray-300 rounded hover:bg-gray-400">
+//   <svg class="w-4 h-4 mr-2 fill-current"></svg>
 //   <span>Download</span>
 // </button>
 import { useButton } from './api'

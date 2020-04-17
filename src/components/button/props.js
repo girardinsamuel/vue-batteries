@@ -1,5 +1,8 @@
+import { baseProps } from '../props'
+
 export default {
   props: {
+    ...baseProps,
     mode: {
       type: String,
       default: 'fill',
@@ -33,10 +36,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    classes: {
-      type: Object,
-      default: () => {}
     },
     to: {
       type: Object,

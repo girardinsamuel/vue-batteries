@@ -35,3 +35,41 @@ Output the following:
   <!-- NOTE: here the outputs -->
 </div>
 ```
+
+## Setup for documentation
+
+::: tip Info
+All components/filters/directives used and rendered in this documentation have been installed with this configuration:
+:::
+
+::: details Open demo configuration
+
+```js
+import Vue from 'vue'
+import VueCompositionApi from '@vue/composition-api'
+import VueBatteries from 'vue-batteries'
+
+Vue.use(VueCompositionApi)
+
+/* It means that :
+- components are styled with default theme (Tailwind)
+- all components are installed globally
+- all components are available through Cell... (default prefix is Cell)
+- all filters are installed
+- all directives are installed
+- all prototypes are installed
+*/
+Vue.use(VueBatteries, {
+  styling: true,
+  copy: true,
+  filters: {
+    truncate: true,
+    uppercase: true,
+    lowercase: true,
+    capitalize: true,
+    slugify: true
+  }
+})
+```
+
+:::

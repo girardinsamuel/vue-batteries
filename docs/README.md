@@ -22,6 +22,4 @@ But if you want low-level components with customizable CSS and HTML structure yo
 
 ### Badge <Badge text="beta" type="warning"/>
 
-<!-- <<< @/demo/DemoWithSlots.vue -->
-
 [Get started](./started/) or play with the [demo](https://github.com//vue-batteries/tree/dev/demo) (see [`README.md`](https://github.com//vue-batteries/) to run them).

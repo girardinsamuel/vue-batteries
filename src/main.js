@@ -28,7 +28,15 @@ import VueBatteries from './index'
 // })
 // All components
 Vue.use(VueBatteries, {
-  styling: true
+  styling: true,
+  copy: true,
+  filters: {
+    truncate: true,
+    uppercase: true,
+    lowercase: true,
+    capitalize: true,
+    slugify: true
+  }
 })
 Vue.use(VueRouter)
 

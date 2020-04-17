@@ -7,7 +7,7 @@
     v-on="listeners"
     v-bind="data.attrs"
     fill="currentColor"
-    viewBox="0 0 24 24"
+    :viewBox="props.viewBox"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path fill-rule="evenodd" :d="$options.methods.getPath(props)" />

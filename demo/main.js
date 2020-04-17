@@ -6,7 +6,7 @@ import '@/assets/tailwind.css'
 Vue.use(VueCompositionApi)
 
 import plugin from '../src/index'
-Vue.use(plugin, { styling: true, prefix: '' })
+Vue.use(plugin, { styling: true, prefix: 'C' })
 
 Vue.config.productionTip = false
 

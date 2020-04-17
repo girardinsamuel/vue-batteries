@@ -4,6 +4,10 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    },
+    viewBox: {
+      type: String,
+      default: '0 0 24 24'
     }
   }
 }

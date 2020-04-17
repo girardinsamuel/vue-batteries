@@ -1,6 +1,7 @@
+import { baseProps } from '../props'
 export default {
-  name: '',
   props: {
+    ...baseProps,
     /**
      * This Boolean property indicates that the user cannot interact with the control.
      */
@@ -17,10 +18,6 @@ export default {
           ['error', 'warning', 'success', 'info'].indexOf(value) !== -1
         )
       }
-    },
-    classes: {
-      type: Object,
-      default: () => {}
     },
     /**
      * Use this directive to create two-way data bindings with the component.

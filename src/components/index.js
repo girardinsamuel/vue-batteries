@@ -1,3 +1,6 @@
 export { default as CellAlert } from './alert/Alert.vue'
 export { default as CellButton } from './button/Button.vue'
 export { default as CellIcon } from './icon/Icon.vue'
+export { default as CellInput } from './input/Input.vue'
+export { default as CellTextarea } from './textarea/Textarea.vue'
+export { default as CellSwitch } from './switch/Switch.vue'

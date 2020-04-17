@@ -1,13 +1,15 @@
 <template>
   <div v-if="value && !dismissed" :class="containerClass" role="alert">
-    <!-- Default slot for alert content -->
-    <slot name="content" :class="contentClass">
-      <p :class="contentClass"><slot /></p>
+    <slot name="renderless" :dismissed="dismissed" :close="close">
+      <!-- Default slot for alert content -->
+      <slot name="content" :class="contentClass">
+        <p :class="contentClass"><slot /></p>
+      </slot>
+      <!-- closable content -->
+      <slot name="close" :close="close" :class="closeClass" v-if="closable"
+        ><div :class="closeClass"><button @click="close">x</button></div></slot
+      >
     </slot>
-    <!-- closable content -->
-    <slot name="close" :close="close" :class="closeClass" v-if="closable"
-      ><div :class="closeClass"><button @click="close">x</button></div></slot
-    >
   </div>
 </template>
 

@@ -1,9 +1,15 @@
+// const useMarkdownItVueExample = require('./utils/use-markdown-it-vue-example')
+const customBlock = require('markdown-it-custom-block')
+const buildExampleComponent = require('./utils/build-example-component')
 module.exports = {
   base: '/vue-batteries/',
-  plugins: [
-    require('vuepress-plugin-playground'),
-    '@vuepress/active-header-links'
-  ],
+  plugins: ['@vuepress/active-header-links'],
+  postcss: {
+    plugins: [
+      require('tailwindcss')('./tailwind-docs.config.js'),
+      require('autoprefixer')()
+    ]
+  },
   locales: {
     '/': {
       lang: 'en-US',
@@ -46,14 +52,32 @@ module.exports = {
             title: 'Components',
             collapsable: true,
             path: '/components/',
-            children: ['/components/alert']
+            children: [
+              '/components/alert',
+              '/components/button',
+              '/components/input',
+              '/components/textarea',
+              '/components/switch',
+              '/components/icon'
+            ]
           },
-          '/utilities.md',
+          {
+            title: 'Filters',
+            collapsable: true,
+            sidebarDepth: 1,
+            path: '/filters/',
+            children: ['/filters/truncate', 'filters/capitalize']
+          },
+          {
+            title: 'Utils',
+            collapsable: true,
+            path: '/utils/',
+            children: ['/utils/copy']
+          },
           '/roadmap.md'
         ]
       }
     },
-    displayAllHeaders: true,
     sidebarDepth: 1,
     searchMaxSuggestions: 10,
     searchPlaceholder: 'Search...',
@@ -65,6 +89,11 @@ module.exports = {
   markdown: {
     extendMarkdown: md => {
       md.use(require('markdown-it-task-lists'), { enabled: true })
+      md.use(customBlock, {
+        example(args) {
+          return buildExampleComponent(args)
+        }
+      })
     }
   }
 }

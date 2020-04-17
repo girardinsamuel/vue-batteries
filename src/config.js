@@ -8,7 +8,22 @@ const DEFAULT_CONFIG = {
   styling: false,
   prefix: 'Cell',
   theme: tailwind,
-  icons: icons
+  icons: icons,
+  statuses: ['default', 'error', 'warning', 'success', 'info'],
+  statusIcons: {
+    error: 'close-circle',
+    success: 'check-circle'
+  },
+  // utils
+  copy: false,
+  // filters
+  filters: {
+    truncate: false,
+    uppercase: false,
+    lowercase: false,
+    capitalize: false,
+    slugify: false
+  }
 }
 
 export let currentConfig = { ...DEFAULT_CONFIG }

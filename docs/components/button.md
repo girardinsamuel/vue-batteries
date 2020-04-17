@@ -1,6 +1,6 @@
 # Button
 
-This component is a simple alert box which can be closed and display different status.
+This component is a simple button.
 
 ## Installation
 
@@ -8,41 +8,22 @@ This component is a simple alert box which can be closed and display different s
 
 ## Examples
 
-```vue @demo
-<template>
-  <div>
-    <button @click="alert = !alert">Toggle alert</button>
-    <CellAlert v-model="alert"> I can be toggled {{ $version }} </CellAlert>
-  </div>
-</template>
-
-<script>
-export default {
-  data: () => ({
-    alert: false
-  })
-}
-</script>
-```
-
 ## API
 
-### props 
+### props
 
-- `mode` ***String*** (*optional*) `default: 'fill'` 
+- `mode` **_String_** (_optional_) `default: 'fill'`
 
-- `variant` ***String*** (*optional*) `default: null` 
+- `variant` **_String_** (_optional_) `default: null`
 
-- `leading-icon` ***String*** (*optional*) `default: ''` 
+- `leading-icon` **_String_** (_optional_) `default: ''`
 
-- `trailing-icon` ***String*** (*optional*) `default: ''` 
+- `trailing-icon` **_String_** (_optional_) `default: ''`
 
-- `block` ***Boolean*** (*optional*) `default: false` 
+- `block` **_Boolean_** (_optional_) `default: false`
 
-- `loading` ***Boolean*** (*optional*) `default: false` 
+- `loading` **_Boolean_** (_optional_) `default: false`
 
-- `disabled` ***Boolean*** (*optional*) `default: false` 
+- `disabled` **_Boolean_** (_optional_) `default: false`
 
-- `classes` ***Object*** (*optional*) `default: [object Object]` 
-
-- `to` ***Object*** (*optional*) `default: [object Object]` 
+- `to` **_Object_** (_optional_) `default: [object Object]`

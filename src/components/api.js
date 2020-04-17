@@ -1,1 +1,5 @@
 export { useAlert } from './alert/api'
+export { useInput } from './input/api'
+export { useTextarea } from './textarea/api'
+export { useButton } from './button/api'
+export { useSwitch } from './switch/api'

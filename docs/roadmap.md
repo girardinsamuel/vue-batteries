@@ -14,7 +14,12 @@ Here is what I plan to add or improve in next releases. Of course ideas 💡 and
 
 - [x] Alert
 - [x] Button
-- [ ] Input
+- [x] Input
+- [x] Icon
+- [x] Textarea
+- [x] Switch
+- [ ] Radio group / Checkbox group (multiple or not)
+- [ ] Select
 - [ ] Drawer
 - [ ] Modal
 
