@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: npm install --ignore-scripts && npm install coveralls
       - name: Run unit tests
-        run: make ci
+        run: make test
         env:
           CI: true
       - name: Coveralls GitHub Action
