@@ -3,9 +3,7 @@
 Don't use this project now as it's in early development phase. It's coming soon :).
 
 ![Unit tests](https://github.com/girardinsamuel/vue-batteries/workflows/Unit%20tests/badge.svg)
-
 [![Coverage Status](https://coveralls.io/repos/github/girardinsamuel/vue-batteries/badge.svg?branch=master)](https://coveralls.io/github/girardinsamuel/vue-batteries?branch=master)
-
 ![Documentation](https://github.com/girardinsamuel/vue-batteries/workflows/Documentation/badge.svg)
 
 ## Project setup
