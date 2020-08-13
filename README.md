@@ -1,9 +1,11 @@
 # vue-batteries (coming soon !)
 
 Don't use this project now as it's in early development phase. It's coming soon :).
+<p align="center">
+<a href='https://coveralls.io/github/girardinsamuel/vue-batteries?branch=master'><img src='https://coveralls.io/repos/github/girardinsamuel/vue-batteries/badge.svg?branch=master' alt='Coverage Status' /></a>
+<a href="#"><img alt="Unit tests" src="https://github.com/girardinsamuel/vue-batteries/workflows/Unit%20tests/badge.svg" /></a>
 
-![Unit tests](https://github.com/girardinsamuel/vue-batteries/workflows/Unit%20tests/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/girardinsamuel/vue-batteries/badge.svg?branch=master)](https://coveralls.io/github/girardinsamuel/vue-batteries?branch=master)
+</p>
 ![Documentation](https://github.com/girardinsamuel/vue-batteries/workflows/Documentation/badge.svg)
 
 ## Project setup
