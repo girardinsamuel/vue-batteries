@@ -18,18 +18,20 @@ Here is what I plan to add or improve in next releases. Of course ideas 💡 and
 - [x] Icon
 - [x] Textarea
 - [x] Switch
-- [ ] Radio group / Checkbox group (multiple or not)
-- [ ] Select
-- [ ] Drawer
+- [x] Select
+- [ ] Radio
+- [ ] Checkbox
+- [ ] SelectGroup (type (radio, checkbox), multiple(y/n), use slot to make stht custom like tab bar, button group switch, tiles selection.)
 - [ ] Modal
+- [ ] Drawer
 
 ## Utilities 🔨
 
-- [ ] Copy
-- [ ] Filters (truncate, uppercase, lowercase, capitalize)
+- [x] Copy
+- [x] Filters (truncate, uppercase, lowercase, capitalize)
 
 ## Documentation and support
 
 - [ ] add a playground for quick test and bug report (codepen, codesandbox...)
 - [ ] write documentation
-- [ ] add release system
+- [ ] add release system (standard-version is a good choice)

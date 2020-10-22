@@ -48,6 +48,7 @@ module.exports = {
         sidebar: [
           '/installation.md',
           '/started.md',
+          '/configuration.md',
           {
             title: 'Components',
             collapsable: true,
@@ -58,7 +59,9 @@ module.exports = {
               '/components/input',
               '/components/textarea',
               '/components/switch',
-              '/components/icon'
+              '/components/icon',
+              '/components/groupInput',
+              '/components/group'
             ]
           },
           {
@@ -66,7 +69,13 @@ module.exports = {
             collapsable: true,
             sidebarDepth: 1,
             path: '/filters/',
-            children: ['/filters/truncate', 'filters/capitalize']
+            children: [
+              '/filters/truncate',
+              'filters/capitalize',
+              'filters/lowercase',
+              'filters/uppercase',
+              'filters/filesize'
+            ]
           },
           {
             title: 'Utils',

@@ -35,7 +35,7 @@ Vue.use(VueBatteries, {
     uppercase: true,
     lowercase: true,
     capitalize: true,
-    slugify: true
+    filesize: true
   }
 })
 Vue.use(VueRouter)
@@ -44,7 +44,7 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: () => import('./Playground.vue')
+      component: () => import('./Playground2.vue')
     },
     {
       path: '/example-route',

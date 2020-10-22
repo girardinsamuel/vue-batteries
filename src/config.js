@@ -5,6 +5,7 @@ import icons from './resources/icons'
 
 const DEFAULT_CONFIG = {
   // defaultMessage: `{_field_} is not valid.`,
+  locale: 'en-US',
   styling: false,
   prefix: 'Cell',
   theme: tailwind,
@@ -22,7 +23,7 @@ const DEFAULT_CONFIG = {
     uppercase: false,
     lowercase: false,
     capitalize: false,
-    slugify: false
+    filesize: false
   }
 }
 

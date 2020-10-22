@@ -1,9 +1,7 @@
 import { computed } from '@vue/composition-api'
 import { useComponentClasses } from '../../api/theme'
 
-// eslint-disable-next-line no-unused-vars
-export const useSwitch = (props, context) => {
-  // behaviour
+export const useChecked = (props, context) => {
   const valIndex = computed(() => {
     return props.values.indexOf(props.value)
   })
@@ -19,8 +17,19 @@ export const useSwitch = (props, context) => {
     return props.reverse ? valIndex.value === 0 : valIndex.value === 1
   })
 
-  // style
+  return {
+    toggle,
+    isChecked,
+    valIndex
+  }
+}
 
+// eslint-disable-next-line no-unused-vars
+export const useSwitch = (props, context) => {
+  // behaviour
+  const { toggle, isChecked, valIndex } = useChecked(props, context)
+
+  // style
   const { styling, setElementClasses, componentClasses } = useComponentClasses(
     props,
     'switch'

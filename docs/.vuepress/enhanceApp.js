@@ -26,7 +26,7 @@ export default ({
       uppercase: true,
       lowercase: true,
       capitalize: true,
-      slugify: true
+      filesize: true
     }
   })
   // add version

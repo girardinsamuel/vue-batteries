@@ -12,3 +12,5 @@ tags:
 - [Textarea](/components/textarea/)
 - [Switch](/components/switch/)
 - [Icon](/components/icon/)
+- [Group Input](/components/groupInput/)
+- [Group](/components/group/)

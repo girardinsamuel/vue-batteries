@@ -38,6 +38,14 @@ export const baseInputProps = {
     type: String,
     default: ''
   },
+  id: {
+    type: String,
+    default: ''
+  },
+  name: {
+    type: String,
+    default: ''
+  },
   disabled: {
     type: Boolean,
     default: false
@@ -64,7 +72,50 @@ export const baseInputProps = {
     @model
     */
   value: {
-    type: [String, Number, Boolean],
+    type: [String, Number, Boolean, Array],
     default: ''
+  }
+}
+
+export const optionsProps = {
+  /** Name of value attribute of an option item object.
+    @default 'value'
+  */
+  valAttrName: {
+    type: String,
+    default: 'value'
+  },
+  /** Name of label attribute of an option item object.
+    @default 'label'
+  */
+  labelAttrName: {
+    type: String,
+    default: 'label'
+  },
+  /** Options array which contains option item object (with value/label attributes)
+    @default []
+   */
+  options: {
+    type: Array,
+    default: () => []
+  }
+}
+
+export const valuesProps = {
+  /** Define is switch is on the left or right, default is right.
+    @default false
+    */
+  reverse: {
+    type: Boolean,
+    default: false
+  },
+  /** Set specific checked/unchecked values instead of false/true. Array of size 2,
+  with unchecked value first.
+    @default [false, true]
+    */
+  values: {
+    type: Array,
+    default: () => [false, true]
+    // TODO: is it possible to validate that values must be of length 2 ?
   }
 }

@@ -1,24 +1,14 @@
-import { baseInputProps, baseProps } from '../props'
+import { baseInputProps, baseProps, valuesProps } from '../props'
 
 export default {
   props: {
     ...baseProps,
     ...baseInputProps,
-    /** Define is switch is on the left or right, default is right.
-      @default false
-     */
-    reverse: {
+    ...valuesProps,
+    // TODO: get rid of that ? use same checkbox system
+    checked: {
       type: Boolean,
       default: false
-    },
-    /** Set specific checked/unchecked values instead of false/true. Array of size 2,
-    with unchecked value first.
-      @default [false, true]
-     */
-    values: {
-      type: Array,
-      default: () => [false, true]
-      // TODO: is it possible to validate that values must be of length 2 ?
     }
   }
 }

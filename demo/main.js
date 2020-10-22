@@ -5,8 +5,23 @@ import '@/assets/tailwind.css'
 
 Vue.use(VueCompositionApi)
 
+import VueTailwind from 'vue-tailwind'
+Vue.use(VueTailwind)
+
 import plugin from '../src/index'
-Vue.use(plugin, { styling: true, prefix: 'C' })
+Vue.use(plugin, {
+  locale: 'fr-FR',
+  styling: true,
+  prefix: 'C',
+  copy: true,
+  filters: {
+    truncate: true,
+    uppercase: true,
+    lowercase: true,
+    capitalize: true,
+    filesize: true
+  }
+})
 
 Vue.config.productionTip = false
 

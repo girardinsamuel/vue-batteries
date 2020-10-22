@@ -43,7 +43,7 @@ export default {
     root: '',
     container: 'relative',
     input: {
-      base: 'form-input',
+      base: 'form-input block w-full',
       error:
         'border border-red-500 text-red-600 placeholder-red-300 focus:border-red-500 focus:shadow-outline-red',
       warning: '',
@@ -134,5 +134,93 @@ export default {
       success: '',
       disabled: 'text-gray-200'
     }
+  },
+  select: {
+    root: '',
+    container: 'relative',
+    input: {
+      base: 'form-select block w-full',
+      base_multiple: 'form-multiselect block w-full',
+      error:
+        'border border-red-500 text-red-600 placeholder-red-300 focus:border-red-500 focus:shadow-outline-red',
+      warning: '',
+      info: '',
+      success: '',
+      disabled: 'text-gray-500',
+      readonly: 'bg-gray-200'
+    },
+    label: {
+      base: 'block text-sm text-left font-medium leading-5',
+      error: 'text-red-600',
+      warning: '',
+      info: '',
+      success: '',
+      disabled: ''
+    },
+    leadingIcon: {
+      base: 'h-4 w-4 fill-current',
+      container:
+        'absolute inset-y-0 left-0 flex items-center pointer-events-none px-2',
+      error: 'text-red-600',
+      warning: '',
+      info: '',
+      success: '',
+      disabled: 'text-gray-500'
+    },
+    help: {
+      base: 'block text-sm mt-1 text-left font-medium leading-5 text-gray-600',
+      error: 'text-red-600',
+      warning: 'text-yellow-800',
+      info: '',
+      success: ''
+    }
+  },
+  checkbox: {
+    container: 'flex items-center',
+    input: {
+      base: 'form-checkbox',
+      error: 'text-red-600',
+      warning: '',
+      info: '',
+      success: '',
+      disabled: 'text-gray-500',
+      readonly: ''
+    },
+    label: {
+      base: 'ml-2',
+      error: 'text-red-600',
+      warning: '',
+      info: '',
+      success: '',
+      disabled: ''
+    }
+  },
+  radio: {
+    container: 'flex items-center',
+    input: {
+      base: 'form-radio',
+      error: 'text-red-600',
+      warning: '',
+      info: '',
+      success: '',
+      disabled: 'text-gray-500',
+      readonly: ''
+    },
+    label: {
+      base: 'ml-2',
+      error: 'text-red-600',
+      warning: '',
+      info: '',
+      success: '',
+      disabled: ''
+    }
+  },
+  group: {
+    root: 'mb-5',
+    container: 'block',
+    label: {
+      base: 'block text-sm text-left font-medium leading-5'
+    },
+    help: ''
   }
 }

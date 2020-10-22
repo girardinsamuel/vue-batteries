@@ -1,40 +1,42 @@
 # Getting Started
 
-> We will be using [ES2015](https://github.com/lukehoban/es6features) in the code samples in the guide.
+## Quick Start
 
-## HTML
+If you want to get started quickly, just add this to your main configuration file (e.g. main.js):
 
-```html
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-batteries/dist/vue-batteries.js"></script>
-
-<div id="#app">
-  <!-- NOTE: here the outputs -->
-</div>
+```js
+import VueBatteries from 'vue-batteries'
+Vue.use(VueBatteries, {
+  styling: true,
+  copy: true,
+  filters: {
+    truncate: true,
+    uppercase: true,
+    lowercase: true,
+    capitalize: true,
+    filesize: true
+  }
+})
 ```
 
-## JavaScript
+This will register all components, filters, and functions globally ([more on that](/configuration)) and you will be able to start using them in your .vue files:
 
-```javascript
-// If using a module system (e.g. via Vue CLI), import Vue and vue-batteries and then call Vue.use(vue-batteries).
-// import Vue from 'vue'
-// import vue-batteries from 'vue-batteries'
-//
-// Vue.use(vue-batteries)
-
-// NOTE: here the example
-
-// Now the app has started!
-new Vue({}).$mount('#app')
+```vue
+<template>
+  <div id="app">
+    <CellAlert>
+      {{ I am an alert ! | uppercase }}
+    </CellAlert>
+  </div>
+</template>
 ```
 
-Output the following:
+## Style of components
 
-```html
-<div id="#app">
-  <!-- NOTE: here the outputs -->
-</div>
-```
+No style
+Theme => Tailwind
+Customise theme
+Override locally
 
 ## Setup for documentation
 
@@ -58,6 +60,7 @@ Vue.use(VueCompositionApi)
 - all filters are installed
 - all directives are installed
 - all prototypes are installed
+- default locale is en-US
 */
 Vue.use(VueBatteries, {
   styling: true,
@@ -67,7 +70,7 @@ Vue.use(VueBatteries, {
     uppercase: true,
     lowercase: true,
     capitalize: true,
-    slugify: true
+    filesize: true
   }
 })
 ```
