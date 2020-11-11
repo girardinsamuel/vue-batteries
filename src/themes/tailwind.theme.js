@@ -107,7 +107,7 @@ export default {
   switch: {
     root: "",
     label: {
-      base: "font-medium leading-5 flex items-center",
+      base: "font-medium leading-5 text-sm flex items-center",
       error: "text-red-600",
       warning: "",
       info: "",
@@ -116,7 +116,7 @@ export default {
     },
     back: {
       base:
-        "relative inline-block flex-shrink-0 h-6 w-12 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline",
+        "mr-1 relative inline-block flex-shrink-0 h-6 w-12 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline",
       checked: "bg-green-600",
       unchecked: "bg-gray-300",
       disabled: "opacity-50",

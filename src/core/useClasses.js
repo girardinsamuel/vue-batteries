@@ -40,7 +40,7 @@ export default (props, themeKey) => {
         _classes.push(componentClasses[elementKey][propKey])
       }
     }
-    return styling ? _classes : ""
+    return styling ? _classes.join(" ") : ""
   }
   return {
     styling,

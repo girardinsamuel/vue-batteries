@@ -16,7 +16,17 @@
     </template>
   </a-alert>
   <button @click="toggle">toggle</button> -->
-  <a-alert v-model="visible2">I am not visible</a-alert>
+  <!-- <a-alert v-model="visible2">I am not visible</a-alert> -->
+  <a-switch>
+    J'accepte ?
+  </a-switch>
+  <!-- <a-switch v-model="state" name="answer_1" help="Help text">I am a switch !</a-switch>
+  <a-switch v-model="state">I am a switch !
+    <template #help="{ className, checked }">
+      <span :class="className">Help text from slot {{ checked }}</span>
+    </template>
+  </a-switch> -->
+  <!-- <a-switch v-model="state" :values="['Non', 'Oui']" reverse>I am a switch !</a-switch> -->
 </template>
 
 <script>
@@ -26,6 +36,7 @@ export default {
     return {
       visible: true,
       visible2: false,
+      state: false,
     }
   },
   methods: {
