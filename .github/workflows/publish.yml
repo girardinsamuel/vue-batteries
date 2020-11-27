@@ -6,15 +6,16 @@ jobs:
   publish:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x]
+    # strategy:
+    #   matrix:
+    #     node-version: [12.x, 14.x]
     steps:
       - uses: actions/checkout@v2
       - name: Build on Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 12.x
+          # node-version: ${{ matrix.node-version }}
       - run: npm install vue@3.0.0
       - run: npm install -D
       # - run: npm ci --ignore-scripts
