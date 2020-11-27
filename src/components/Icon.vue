@@ -30,13 +30,16 @@ export default {
     },
     viewBox: {
       type: String,
-      default: "0 0 24 24",
+      default: "0 0 20 20",
     },
   },
   setup (props, context) {
     const { styling, componentClasses } = useClasses(props, "icon")
 
     const iconClass = computed(() => {
+      if (context.attrs.class) {
+        return ""
+      }
       if (styling) {
         return [
           componentClasses.base,

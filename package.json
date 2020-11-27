@@ -17,8 +17,12 @@
     "dist/vue-batteries.umd.js"
   ],
   "dependencies": {
+    "@tailwindcss/forms": "^0.2.1",
+    "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
     "lodash.merge": "^4.6.2",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
     "ts-jest": "^26.4.4",
     "typescript": "^4.0.5",
     "vue": "^3.0.0"
@@ -39,8 +43,9 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0-0",
-    "tailwindcss": "^1.9.6",
-    "vue-jest": "^5.0.0-0"
+    "vee-validate": "^4.0.0-beta.19",
+    "vue-jest": "^5.0.0-0",
+    "yup": "^0.29.3"
   },
   "sideEffects": false
 }

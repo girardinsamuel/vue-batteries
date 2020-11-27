@@ -2,15 +2,20 @@ import { defineComponent, computed, ref, h } from "vue"
 
 import useClasses from "../core/useClasses"
 import { baseProps } from "../utils/baseProps"
+import CellIcon from "./Icon.vue"
+import { getConfig } from "../config"
 
-export const Alert = defineComponent({
-  name: "Alert",
+export const AlertProps = {
   props: {
     ...baseProps,
     /**
      * This Boolean property indicates that the user cannot interact with the control.
      */
     closable: {
+      type: Boolean,
+      default: true,
+    },
+    showIcon: {
       type: Boolean,
       default: true,
     },
@@ -34,23 +39,31 @@ export const Alert = defineComponent({
       default: true,
     },
   },
+}
+
+export const Alert = defineComponent({
+  name: "Alert",
+  mixins: [AlertProps],
+  emits: ["update:modelValue"],
   render () {
-    const hide = !this.$props.modelValue || this.dismissed
-    debugger
-    if (hide) {
+    const config = getConfig()
+    if (this.hide) {
       return null
     }
+    const showStatusIcon = this.$props.showIcon && !!this.$props.status
+    const iconName = this.$props.status ? config.statusIcons[this.$props.status] : null
+    const leadingIconComponent = "leadingIcon" in this.$slots ? this.$slots.leadingIcon({ className: this.leadingIconClass, icon: iconName }) : h(CellIcon, { class: this.leadingIconClass, name: iconName })
     const closeComponent = "close" in this.$slots ? this.$slots.close({ className: this.closeClass, close: this.close }) : h("div", { class: this.closeClass }, [h("button", { onClick: this.close }, "x")])
-    const contentComponent = "content" in this.$slots ? this.$slots.content({ className: this.contentClass }) : h("span", { class: this.contentClass }, this.$slots.default)
-
-    return h("div", { class: this.containerClass, role: "alert" }, [
+    const contentComponent = "content" in this.$slots ? this.$slots.content({ className: this.contentClass }) : h("span", { class: this.contentClass }, this.$slots.default())
+    return h("div", { class: this.containerClass, role: "alert", hide: this.hide }, [
+      showStatusIcon && leadingIconComponent,
       contentComponent,
       this.closable && closeComponent,
     ])
   },
   setup (props, { emit }) {
     // Styling
-    const { styling, componentClasses, setElementClasses } = useClasses(
+    const { styling, setElementClasses } = useClasses(
       props,
       "alert",
     )
@@ -59,19 +72,27 @@ export const Alert = defineComponent({
         [props.status]: props.status,
       })
     })
-
+    const leadingIconClass = computed(() => {
+      return setElementClasses("leadingIcon", "base", {
+        [props.status]: props.status,
+      })
+    })
     const contentClass = computed(() => {
-      return styling ? componentClasses.content : ""
+      return setElementClasses("content", "base", {
+        [props.status]: props.status,
+      })
     })
     const closeClass = computed(() => {
-      return styling ? componentClasses.close : ""
+      return setElementClasses("close", "base", {
+        [props.status]: props.status,
+      })
     })
 
     // State
-    // const show = computed(() => {
-    //   return this.modelValue || !this.dismissed
-    // })
-    const dismissed = ref(false)
+    const dismissed = ref(!props.modelValue)
+    const hide = computed(() => {
+      return !props.modelValue || dismissed.value
+    })
 
     // Methods
     const close = () => {
@@ -79,14 +100,15 @@ export const Alert = defineComponent({
       // for v-model to work
       emit("update:modelValue", false)
     }
-    debugger
     return {
       styling,
+      leadingIconClass,
       containerClass,
       contentClass,
       closeClass,
       dismissed,
       close,
+      hide,
     }
   },
 })

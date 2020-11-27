@@ -36,7 +36,7 @@ export default textToCopy => {
     return status
   } catch (err) {
     document.body.removeChild(textarea)
-    console.log(err)
+    console.error(err)
     return false
   }
 }

@@ -48,6 +48,7 @@ export default plugin
 // 2. for use with tree-shaking
 export * from "./components"
 export * from "./filters"
+export * from "./props"
 
 // 3. browser use
 if (typeof window !== "undefined" && window.Vue) {

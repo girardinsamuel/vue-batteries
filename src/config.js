@@ -15,6 +15,8 @@ const DEFAULT_CONFIG = {
   statusIcons: {
     error: "close-circle",
     success: "check-circle",
+    info: "information-circle",
+    warning: "exclamation",
   },
   // utils
   copy: true,

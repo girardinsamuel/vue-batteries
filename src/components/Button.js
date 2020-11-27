@@ -1,8 +1,9 @@
 // import { computed, defineComponent, inject, InjectionKey, provide, ref, Ref, h } from "vue"
-import { defineComponent, computed, h, resolveComponent, inject } from "vue"
+import { defineComponent, computed, h } from "vue"
 
 import useClasses from "../core/useClasses"
 import { baseProps } from "../utils/baseProps"
+import CellIcon from "./Icon.vue"
 
 // import { render } from "../../utils/render"
 // import { useId } from "../../hooks/use-id"
@@ -93,36 +94,32 @@ export const Button = defineComponent({
     },
   },
   render () {
-    const config = inject("vue-batteries")
     const { as, loadingMode, loading } = this.$props
-    const hasTrailingComponent = "trailing" in this.$slots || this.trailingIcon
-    const hasLeadingComponent = "leading" in this.$slots || this.leadingIcon
-    const getIcon = () => {
-      return resolveComponent(config.iconComponent)
-    }
-
-    const loadingComponent = h(getIcon(), { class: this.trailingIconClass, name: "loading", loading: true })
-    const trailingComponent = "trailing" in this.$slots ? this.$slots.trailing({ className: this.trailingIconClass }) : h("span", { class: this.trailingIconClass }, this.trailingIcon)
-    const leadingComponent = "leading" in this.$slots ? this.$slots.leading({ className: this.leadingIconClass }) : h("span", { class: this.leadingIconClass }, this.leadingIcon)
-
+    const hasTrailingComponent = "trailing" in this.$slots || !!this.trailingIcon
+    const hasLeadingComponent = "leading" in this.$slots || !!this.leadingIcon
+    // const icon = resolveDynamicComponent(config.iconComponent)
+    const loadingComponent = h(CellIcon, { class: loadingMode === "trailing" ? this.trailingIconClass : loadingMode === "leading" ? this.leadingIconClass : "", name: "loading", loading: true })
+    const trailingComponent = "trailing" in this.$slots ? this.$slots.trailing({ className: this.trailingIconClass }) : h(CellIcon, { class: this.trailingIconClass, name: this.trailingIcon })
+    const leadingComponent = "leading" in this.$slots ? this.$slots.leading({ className: this.leadingIconClass }) : h(CellIcon, { class: this.leadingIconClass, name: this.leadingIcon })
     if (loading) {
       return h(as, { class: this.buttonClass }, loadingMode === "fill" ? loadingComponent : [
-        loadingMode === "trailing" && loadingComponent,
-        hasTrailingComponent && loadingMode === "leading" && trailingComponent,
-        this.$slots.default(),
-        hasLeadingComponent && loadingMode === "trailing" && leadingComponent,
         loadingMode === "leading" && loadingComponent,
+        hasLeadingComponent && loadingMode === "trailing" && leadingComponent,
+        this.$slots.default(),
+        hasTrailingComponent && loadingMode === "leading" && trailingComponent,
+        loadingMode === "trailing" && loadingComponent,
       ])
     } else {
       return h(as, { class: this.buttonClass }, [
-        hasTrailingComponent && trailingComponent,
-        this.$slots.default(),
         hasLeadingComponent && leadingComponent,
+        this.$slots.default(),
+        hasTrailingComponent && trailingComponent,
       ])
     }
   },
   setup (props) {
     // const api = inject(GroupContext, null)
+    // const config = inject("vue-batteries")
 
     const { styling, componentClasses } = useClasses(props, "button")
 
