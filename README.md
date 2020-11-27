@@ -1,4 +1,5 @@
-# vue-batteries
+# vue-batteries [WIP]
+Non opiononated renderless UI components with Vue 3, work in progress !!
 
 ## Project setup
 ```
@@ -24,6 +25,3 @@ npm run test:unit
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
