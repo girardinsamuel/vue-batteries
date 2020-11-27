@@ -1,15 +1,11 @@
 import merge from "lodash.merge"
 
 import tailwind from "./themes/tailwind.theme"
-// import icons from "./resources/icons"
 
 const DEFAULT_CONFIG = {
-  // defaultMessage: `{_field_} is not valid.`,
-  // locale: "en-US",
   styling: true,
   prefix: "Cell",
   theme: tailwind,
-  // icons: icons,
   iconComponent: "CellIcon",
   statuses: ["default", "error", "warning", "success", "info"],
   statusIcons: {

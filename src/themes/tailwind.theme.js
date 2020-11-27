@@ -79,6 +79,7 @@ export default {
   },
   icon: {
     base: "fill-current w-4 h-4",
+    loading: "spin",
   },
   input: {
     root: "",

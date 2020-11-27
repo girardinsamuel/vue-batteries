@@ -3,7 +3,7 @@
     v-bind="$attrs"
     :class="[
       iconClass,
-      loading || name == 'loading' ? 'spin' : null
+      loading || name == 'loading' ? loadingClass : null
     ]"
     fill="currentColor"
     :viewBox="viewBox"
@@ -36,6 +36,10 @@ export default {
   setup (props, context) {
     const { styling, componentClasses } = useClasses(props, "icon")
 
+    const loadingClass = computed(() => {
+      return styling && componentClasses.loading
+    })
+
     const iconClass = computed(() => {
       if (context.attrs.class) {
         return ""
@@ -51,6 +55,7 @@ export default {
 
     return {
       iconClass,
+      loadingClass,
     }
   },
   methods: {
@@ -60,17 +65,3 @@ export default {
   },
 }
 </script>
-
-<style>
-@keyframes loading-spinner {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.spin {
-  animation: loading-spinner 1s linear infinite;
-}
-</style>

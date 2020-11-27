@@ -47,6 +47,7 @@ export default plugin
 
 // 2. for use with tree-shaking
 export * from "./components"
+export * from "./core"
 export * from "./filters"
 export * from "./props"
 
