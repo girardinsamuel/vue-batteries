@@ -202,7 +202,7 @@ const Input = defineComponent({
     },
   },
 })
-export {
+export default {
   useApi,
   useClasses,
   Input,
