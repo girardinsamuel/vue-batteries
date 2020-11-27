@@ -2,6 +2,7 @@
   "name": "vue-batteries",
   "version": "0.1.0-alpha.1",
   "private": true,
+  "description": "Renderless not opiniated components and directive library to quickly build UI with Vue.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name vue-batteries ./src/index.js",
