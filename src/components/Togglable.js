@@ -4,7 +4,7 @@ import useBaseClasses from "../core/useClasses"
 import { baseProps } from "../utils/baseProps"
 import useToggle from "../core/useToggle"
 
-export const useClasses = (props, context, status, isChecked, type) => {
+const useClasses = (props, context, status, isChecked, type) => {
   const { styling, componentClasses, setElementClasses } = useBaseClasses(
     props,
     type,
@@ -53,7 +53,7 @@ export const useClasses = (props, context, status, isChecked, type) => {
     containerClass,
   }
 }
-export const useApi = (props, context, status, type) => {
+const useApi = (props, context, status, type) => {
   // const { toggle, isChecked, internalValue } = useToggle(props, context)
   // return {
   //   toggle,
@@ -116,3 +116,8 @@ export const Togglable = defineComponent({
     },
   },
 })
+export default {
+  useApi,
+  useClasses,
+  Togglable,
+}

@@ -5,7 +5,7 @@ import useGroup from "../core/useGroup"
 import { baseProps } from "../utils/baseProps"
 import { getConfig } from "../config"
 
-export const useClasses = (props, context, status) => {
+const useClasses = (props, context, status) => {
   const { styling, componentClasses, setElementClasses } = useBaseClasses(
     props,
     "select",
@@ -73,7 +73,7 @@ export const useClasses = (props, context, status) => {
   }
 }
 
-export const useApi = (props, context, status) => {
+const useApi = (props, context, status) => {
   const config = getConfig()
   // main behaviour
   const { normalizedOptions, value, toggle, isSelected } = useGroup(props, context, props.multiple, props.valueAttr, props.labelAttr)
@@ -111,7 +111,7 @@ export const useApi = (props, context, status) => {
   }
 }
 
-export const Select = defineComponent({
+const Select = defineComponent({
   name: "Select",
   emits: ["update:modelValue", "change"],
   props: {
@@ -183,3 +183,9 @@ export const Select = defineComponent({
     },
   },
 })
+
+export default {
+  useApi,
+  useClasses,
+  Select,
+}
