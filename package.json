@@ -16,6 +16,21 @@
     "dist/vue-batteries.umd.min.js",
     "dist/vue-batteries.umd.js"
   ],
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/girardinsamuel/vue-batteries.git"
+  },
+  "keywords": ["Vue 3", "vue", "renderless", "ui"],
+  "author": {
+    "name": "Samuel Girardin",
+    "email": "samuelgirardin@pm.me",
+    "url": "https://github.com/girardinsamuel"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/girardinsamuel/vue-batteries/issues"
+  },
+  "homepage": "https://github.com/girardinsamuel/vue-batteries#readme",
   "dependencies": {
     "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
