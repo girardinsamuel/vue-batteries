@@ -1,36 +1,6 @@
 /** Behaviour used to provide different options and be able to select one or multiple. */
 import { ref } from "vue"
 
-/** <!-- `value`, `text` attributes (Preferred) -->
-<t-select :options="[
-  { value: 1, text: 'Option 1' },
-  { value: 2, text: 'Option 2' },
-  { value: 3, text: 'Option 3', disabled: true }
-]" />
-<!-- `id` instead of `value` as attribute -->
-<t-select :options="[
-  { id: 1, text: 'Option 1' },
-  { id: 2, text: 'Option 2' },
-  { id: 3, text: 'Option 3', disabled: true }
-]" />
-<!-- `label` instead of `text` as attribute -->
-<t-select :options="[
-  { value: 1, label: 'Option 1' },
-  { value: 2, label: 'Option 2' },
-  { value: 3, label: 'Option 3', disabled: true }
-]" />
-
-[
-  { value: 1, label: 'Option 1' },
-  { value: 2, label: 'Option 2' },
-  { value: 3, label: 'Option 3', disabled: true }
-]
-[
-  1,2,3
-]
-{ a: 'Option 1', b: 'Option 2' }
- */
-
 function isObject (objValue) {
   return objValue && typeof objValue === "object" && objValue.constructor === Object
 }

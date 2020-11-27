@@ -49,7 +49,7 @@ export default plugin
 export * from "./components"
 export * from "./core"
 export * from "./filters"
-export * from "./props"
+// export * from "./props"
 
 // 3. browser use
 if (typeof window !== "undefined" && window.Vue) {
