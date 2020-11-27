@@ -4,7 +4,7 @@ import useBaseClasses from "../core/useClasses"
 import { baseProps } from "../utils/baseProps"
 import { getConfig } from "../config"
 
-export const useClasses = (props, context, status) => {
+const useClasses = (props, context, status) => {
   const { styling, componentClasses, setElementClasses } = useBaseClasses(
     props,
     "input",
@@ -72,7 +72,7 @@ export const useClasses = (props, context, status) => {
   }
 }
 
-export const useApi = (props, context, status) => {
+const useApi = (props, context, status) => {
   const config = getConfig()
 
   // hide input value
@@ -134,7 +134,7 @@ export const useApi = (props, context, status) => {
   }
 }
 
-export const Input = defineComponent({
+const Input = defineComponent({
   name: "Input",
   emits: ["update:modelValue"],
   props: {
@@ -202,3 +202,8 @@ export const Input = defineComponent({
     },
   },
 })
+export {
+  useApi,
+  useClasses,
+  Input,
+}

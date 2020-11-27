@@ -7,7 +7,7 @@ const version = "__VERSION__"
 
 const plugin = {
   version,
-  install: (app, options) => {
+  install: (app, options = {}) => {
     // Configure plugin with user options (merged with default configuration)
     configure(options)
     const currentConfig = getConfig()
