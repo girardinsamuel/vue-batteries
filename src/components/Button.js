@@ -1,9 +1,9 @@
 // import { computed, defineComponent, inject, InjectionKey, provide, ref, Ref, h } from "vue"
-import { defineComponent, computed, h } from "vue"
+import { defineComponent, computed, h, resolveDynamicComponent } from "vue"
 
 import useClasses from "../core/useClasses"
 import { baseProps } from "../utils/baseProps"
-import CellIcon from "./Icon.vue"
+import { getConfig } from "../config"
 
 // import { render } from "../../utils/render"
 // import { useId } from "../../hooks/use-id"
@@ -94,10 +94,11 @@ export const Button = defineComponent({
     },
   },
   render () {
+    const iconComponentName = getConfig().iconComponent
+    const CellIcon = resolveDynamicComponent(iconComponentName)
     const { as, loadingMode, loading } = this.$props
     const hasTrailingComponent = "trailing" in this.$slots || !!this.trailingIcon
     const hasLeadingComponent = "leading" in this.$slots || !!this.leadingIcon
-    // const icon = resolveDynamicComponent(config.iconComponent)
     const loadingComponent = h(CellIcon, { class: loadingMode === "trailing" ? this.trailingIconClass : loadingMode === "leading" ? this.leadingIconClass : "", name: "loading", loading: true })
     const trailingComponent = "trailing" in this.$slots ? this.$slots.trailing({ className: this.trailingIconClass }) : h(CellIcon, { class: this.trailingIconClass, name: this.trailingIcon })
     const leadingComponent = "leading" in this.$slots ? this.$slots.leading({ className: this.leadingIconClass }) : h(CellIcon, { class: this.leadingIconClass, name: this.leadingIcon })

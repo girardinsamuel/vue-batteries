@@ -1,8 +1,7 @@
-import { defineComponent, computed, ref, h } from "vue"
+import { defineComponent, computed, ref, h, resolveDynamicComponent } from "vue"
 
 import useClasses from "../core/useClasses"
 import { baseProps } from "../utils/baseProps"
-import CellIcon from "./Icon.vue"
 import { getConfig } from "../config"
 
 export const AlertProps = {
@@ -52,6 +51,8 @@ export const Alert = defineComponent({
     }
     const showStatusIcon = this.$props.showIcon && !!this.$props.status
     const iconName = this.$props.status ? config.statusIcons[this.$props.status] : null
+    const iconComponentName = getConfig().iconComponent
+    const CellIcon = resolveDynamicComponent(iconComponentName)
     const leadingIconComponent = "leadingIcon" in this.$slots ? this.$slots.leadingIcon({ className: this.leadingIconClass, icon: iconName }) : h(CellIcon, { class: this.leadingIconClass, name: iconName })
     const closeComponent = "close" in this.$slots ? this.$slots.close({ className: this.closeClass, close: this.close }) : h("div", { class: this.closeClass }, [h("button", { onClick: this.close }, "x")])
     const contentComponent = "content" in this.$slots ? this.$slots.content({ className: this.contentClass }) : h("span", { class: this.contentClass }, this.$slots.default())
