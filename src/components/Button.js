@@ -60,7 +60,7 @@ export const Button = defineComponent({
     },
     variant: {
       type: String,
-      default: null,
+      default: "default",
       validator: function (value) {
         return value !== "root"
       },
