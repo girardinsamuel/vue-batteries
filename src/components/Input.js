@@ -96,7 +96,7 @@ const useApi = (props, context, status) => {
     } else if (props.statusIcon && !!status.value) {
       return config.statusIcons[status.value]
     } else if (props.passwordToggle && props.type === "password") {
-      return visibility.value ? "eye-off" : "eye"
+      return visibility.value ? config.visibilityIcons.on : config.visibilityIcons.off
     } else if (props.trailingIcon) {
       return props.trailingIcon
     } else {

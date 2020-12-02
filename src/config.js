@@ -14,6 +14,10 @@ const DEFAULT_CONFIG = {
     info: "information-circle",
     warning: "exclamation",
   },
+  visibilityIcons: {
+    on: "eye",
+    off: "eye-off",
+  },
   // utils
   copy: true,
   // filters
