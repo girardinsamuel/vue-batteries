@@ -14,6 +14,7 @@ export const normalizeOptions = (options, valueAttr, labelAttr) => {
         normalizedOptions.value.push({
           [valueAttr]: opt,
           [labelAttr]: opt,
+          disabled: false,
         })
       } else {
         objInArray = true
@@ -24,7 +25,7 @@ export const normalizeOptions = (options, valueAttr, labelAttr) => {
     }
   } else if (isObject(options)) {
     Object.entries(options).forEach(([key, value]) => {
-      normalizedOptions.value.push({ [valueAttr]: key, [labelAttr]: value })
+      normalizedOptions.value.push({ [valueAttr]: key, [labelAttr]: value, disabled: false })
     })
   } else {
     return new Error("options must be an Array or an Object.")
