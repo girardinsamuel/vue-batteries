@@ -21,7 +21,7 @@ export const normalizeOptions = (options, valueAttr, labelAttr) => {
       }
     })
     if (objInArray) {
-      normalizedOptions.value = options.value
+      normalizedOptions.value = options
     }
   } else if (isObject(options)) {
     Object.entries(options).forEach(([key, value]) => {
