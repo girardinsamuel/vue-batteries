@@ -108,13 +108,17 @@ const useApi = (props, context, status) => {
       ? toggle()
       : context.emit("trailing-icon-click")
   }
+
+  // input value logic
+  const inputValue = ref(props.modelValue)
   const onInput = event => {
-    context.emit("update:modelValue", event.target.value)
+    inputValue.value = event.target.value
+    context.emit("update:modelValue", inputValue.value)
   }
   const onBlur = event => {
     // to implement if needed
   }
-  const inputValue = props.modelValue
+  // const inputValue = props.modelValue
   const helpText = ref(props.help)
   const renderHelp = computed(() => { return helpText.value !== "" || "help" in context.slots })
   const hasTrailingIcon = computed(() => { return (props.passwordToggle && props.type === "password") || !!trailingIconName.value })
