@@ -137,7 +137,7 @@ export const Button = defineComponent({
           props.block ? componentClasses.block : componentClasses.inline,
         ]
       } else {
-        return ""
+        return [props.class]
       }
     })
 
