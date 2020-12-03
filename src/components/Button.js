@@ -95,14 +95,14 @@ export const Button = defineComponent({
   render () {
     const iconComponentName = getConfig().iconComponent
     const CellIcon = resolveDynamicComponent(iconComponentName)
-    const { as, loadingMode, loading } = this.$props
+    const { as, loadingMode, loading, disabled } = this.$props
     const hasTrailingComponent = "trailing" in this.$slots || !!this.trailingIcon
     const hasLeadingComponent = "leading" in this.$slots || !!this.leadingIcon
     const loadingComponent = h(CellIcon, { class: loadingMode === "trailing" ? this.trailingIconClass : loadingMode === "leading" ? this.leadingIconClass : "", name: "loading", loading: true })
     const trailingComponent = "trailing" in this.$slots ? this.$slots.trailing({ className: this.trailingIconClass }) : h(CellIcon, { class: this.trailingIconClass, name: this.trailingIcon })
     const leadingComponent = "leading" in this.$slots ? this.$slots.leading({ className: this.leadingIconClass }) : h(CellIcon, { class: this.leadingIconClass, name: this.leadingIcon })
     if (loading) {
-      return h(as, { class: this.buttonClass }, loadingMode === "fill" ? loadingComponent : [
+      return h(as, { class: this.buttonClass, disabled: disabled }, loadingMode === "fill" ? loadingComponent : [
         loadingMode === "leading" && loadingComponent,
         hasLeadingComponent && loadingMode === "trailing" && leadingComponent,
         this.$slots.default(),
