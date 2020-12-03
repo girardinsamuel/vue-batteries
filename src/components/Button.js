@@ -49,8 +49,7 @@ export const Button = defineComponent({
   props: {
     ...baseProps,
     as: { type: [Object, String], default: "button" },
-    class: { type: [String, Function], required: false },
-    className: { type: [String, Function], required: false },
+    class: { type: [String, Function], required: false, default: "" },
     mode: {
       type: String,
       default: "fill",
@@ -127,6 +126,7 @@ export const Button = defineComponent({
     const buttonClass = computed(() => {
       if (styling) {
         return [
+          props.class,
           componentClasses.base,
           componentClasses.variants.root[props.mode],
           props.disabled ? componentClasses.variants.root.disabled : "",
