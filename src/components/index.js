@@ -1,6 +1,6 @@
 export { Button as CellButton } from "./Button"
 export { Alert as CellAlert } from "./Alert"
-export { Switch as CellSwitch } from "./Switch"
+export { default as CellSwitch } from "./Switch"
 export { default as CellSelect } from "./Select"
 export { default as CellInput } from "./Input"
 export { default as CellTogglable } from "./Togglable"

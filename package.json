@@ -1,6 +1,6 @@
 {
   "name": "vue-batteries",
-  "version": "0.1.0-alpha.15",
+  "version": "0.1.0-alpha.16",
   "description": "Renderless not opiniated components and directive library to quickly build UI with Vue.js",
   "scripts": {
     "serve": "vue-cli-service serve",

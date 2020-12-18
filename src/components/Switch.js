@@ -4,7 +4,7 @@ import useBaseClasses from "../core/useClasses"
 import useCheck from "../core/useCheck"
 import { baseProps } from "../utils/baseProps"
 
-export const useClasses = (props, context, status, isChecked) => {
+const useClasses = (props, context, status, isChecked) => {
   const { styling, setElementClasses, componentClasses } = useBaseClasses(
     props,
     "switch",
@@ -50,7 +50,7 @@ export const useClasses = (props, context, status, isChecked) => {
   }
 }
 
-export const useApi = (props, context, status) => {
+const useApi = (props, context, status) => {
   const { toggle, isChecked, valIndex } = useCheck(props, context)
   return {
     toggle,
@@ -59,7 +59,7 @@ export const useApi = (props, context, status) => {
   }
 }
 
-export const Switch = defineComponent({
+const Switch = defineComponent({
   name: "Switch",
   emits: ["update:modelValue", "change"],
   props: {
@@ -142,3 +142,9 @@ export const Switch = defineComponent({
   //   }
   // },
 })
+
+export default {
+  useApi,
+  useClasses,
+  Switch,
+}
