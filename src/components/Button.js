@@ -112,12 +112,12 @@ export const Button = defineComponent({
     } else {
       return h(as, { class: this.buttonClass }, [
         hasLeadingComponent && leadingComponent,
-        this.$slots.default(),
+        "default" in this.$slots && this.$slots.default(),
         hasTrailingComponent && trailingComponent,
       ])
     }
   },
-  setup (props) {
+  setup (props, context) {
     // const api = inject(GroupContext, null)
     // const config = inject("vue-batteries")
 
@@ -140,12 +140,18 @@ export const Button = defineComponent({
         return [props.class]
       }
     })
-
+    const hasLabel = "default" in context.slots
     const leadingIconClass = computed(() => {
-      return styling && componentClasses.leadingIcon
+      return styling && [
+        componentClasses.leadingIcon,
+        hasLabel ? componentClasses.iconMarginLeft : "",
+      ]
     })
     const trailingIconClass = computed(() => {
-      return styling && componentClasses.trailingIcon
+      return styling && [
+        componentClasses.trailingIcon,
+        hasLabel ? componentClasses.iconMarginRight : "",
+      ]
     })
     return {
       buttonClass,
