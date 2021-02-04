@@ -126,3 +126,8 @@ export const Textarea = defineComponent({
     },
   },
 })
+
+export default {
+  useClasses,
+  Textarea,
+}
