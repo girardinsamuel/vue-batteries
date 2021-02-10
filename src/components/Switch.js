@@ -21,8 +21,8 @@ const useClasses = (props, context, status, isChecked) => {
   const helpClass = computed(() => {
     return setElementClasses("help", "root", {
       disabled: props.disabled,
-      base: !!status.value,
-      [status.value]: status.value && !props.disabled,
+      [status.value]: !!status.value,
+      base: status.value == null,
     })
   })
 

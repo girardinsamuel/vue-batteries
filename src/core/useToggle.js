@@ -36,9 +36,7 @@ export default (props, { emit }) => {
     let localValue
     if (Array.isArray(props.modelValue)) {
       const localValue = [...props.modelValue]
-      console.log(localValue)
       const index = localValue.indexOf(props.value)
-      console.log(index)
       if (isInputChecked && index < 0) {
         localValue.push(props.value)
       } else if (!isInputChecked && index >= 0) {
