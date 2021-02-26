@@ -95,6 +95,10 @@ const Switch = defineComponent({
         )
       },
     },
+    required: {
+      type: Boolean,
+      default: false,
+    },
     /** Define is switch is on the left or right, default is right.
     @default false
     */

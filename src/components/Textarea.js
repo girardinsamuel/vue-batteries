@@ -106,6 +106,10 @@ export const Textarea = defineComponent({
         )
       },
     },
+    required: {
+      type: Boolean,
+      default: false,
+    },
     // Input specific props
     /** Name of leading icon. This is using Icon component that you can configure to
     suit your own set of icons (or to use an external library).

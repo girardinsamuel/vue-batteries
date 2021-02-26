@@ -118,6 +118,10 @@ export const Togglable = defineComponent({
       type: String,
       default: "",
     },
+    required: {
+      type: Boolean,
+      default: false,
+    },
   },
 })
 export default {
