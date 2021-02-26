@@ -15,6 +15,9 @@ const useClasses = (props, context, status, isChecked, type) => {
   const containerClass = computed(() => {
     return styling && componentClasses.container
   })
+  const requiredClass = computed(() => {
+    return styling && componentClasses.requiredClass
+  })
   const inputClass = computed(() => {
     return setElementClasses("input", "root", {
       disabled: props.disabled,
@@ -51,6 +54,7 @@ const useClasses = (props, context, status, isChecked, type) => {
     inputClass,
     rootClass,
     containerClass,
+    requiredClass,
   }
 }
 const useApi = (props, context, status, type) => {

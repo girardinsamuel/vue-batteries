@@ -59,6 +59,9 @@ const useClasses = (props, context, status) => {
       base: status.value == null,
     })
   })
+  const requiredClass = computed(() => {
+    return styling && componentClasses.required
+  })
   return {
     trailingIconClass,
     trailingIconContainerClass,
@@ -69,6 +72,7 @@ const useClasses = (props, context, status) => {
     inputClass,
     rootClass,
     containerClass,
+    requiredClass,
   }
 }
 
@@ -169,6 +173,10 @@ const Input = defineComponent({
           ["error", "warning", "success", "info"].indexOf(value) !== -1
         )
       },
+    },
+    required: {
+      type: Boolean,
+      default: false,
     },
     // Input specific props
     /** Name of leading icon. This is using Icon component that you can configure to

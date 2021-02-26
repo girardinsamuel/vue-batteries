@@ -60,6 +60,9 @@ const useClasses = (props, context, status) => {
       base: status.value == null,
     })
   })
+  const requiredClass = computed(() => {
+    return styling && componentClasses.required
+  })
   return {
     trailingIconClass,
     trailingIconContainerClass,
@@ -70,6 +73,7 @@ const useClasses = (props, context, status) => {
     selectClass,
     rootClass,
     containerClass,
+    requiredClass,
   }
 }
 

@@ -12,6 +12,9 @@ const useClasses = (props, context, status, isChecked) => {
   const rootClass = computed(() => {
     return styling && componentClasses.root
   })
+  const requiredClass = computed(() => {
+    return styling && componentClasses.required
+  })
   const labelClass = computed(() => {
     return setElementClasses("label", "base", {
       disabled: props.disabled,
@@ -47,6 +50,7 @@ const useClasses = (props, context, status, isChecked) => {
     backClass,
     frontClass,
     helpClass,
+    requiredClass,
   }
 }
 

@@ -74,8 +74,10 @@ export default {
       },
     },
     // icon classes
-    leadingIcon: "-ml-1 mr-2 h-5 w-5",
-    trailingIcon: "ml-2 -mr-1 h-5 w-5",
+    leadingIcon: "h-5 w-5",
+    trailingIcon: "h-5 w-5",
+    iconMarginRight: "mr-2",
+    iconMarginLeft: "ml-2",
   },
   icon: {
     base: "fill-current w-4 h-4",
@@ -135,6 +137,7 @@ export default {
       info: "",
       success: "",
     },
+    required: "text-red-500",
   },
   textarea: {
     root: "",
@@ -190,6 +193,7 @@ export default {
       info: "",
       success: "",
     },
+    required: "text-red-500",
   },
   switch: {
     root: "flex items-center",
@@ -223,6 +227,7 @@ export default {
       info: "",
       success: "",
     },
+    required: "text-red-500",
   },
   select: {
     root: "",
@@ -279,6 +284,7 @@ export default {
       info: "",
       success: "",
     },
+    required: "text-red-500",
   },
   checkbox: {
     root: "",
