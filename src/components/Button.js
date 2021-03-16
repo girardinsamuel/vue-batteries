@@ -91,6 +91,10 @@ export const Button = defineComponent({
       type: Boolean,
       default: false,
     },
+    responsive: {
+      type: Boolean,
+      default: false,
+    },
   },
   render () {
     const iconComponentName = getConfig().iconComponent
@@ -101,7 +105,7 @@ export const Button = defineComponent({
     const loadingComponent = h(CellIcon, { class: loadingMode === "trailing" ? this.trailingIconClass : loadingMode === "leading" ? this.leadingIconClass : "", name: "loading", loading: true })
     const trailingComponent = "trailing" in this.$slots ? this.$slots.trailing({ className: this.trailingIconClass }) : h(CellIcon, { class: this.trailingIconClass, name: this.trailingIcon })
     const leadingComponent = "leading" in this.$slots ? this.$slots.leading({ className: this.leadingIconClass }) : h(CellIcon, { class: this.leadingIconClass, name: this.leadingIcon })
-    const innerComponent = "default" in this.$slots ? h("span", { className: this.textButtonClass }, this.$slots.default()) : null
+    const innerComponent = "default" in this.$slots ? h("span", this.responsive ? { className: this.responsiveButtonClass } : {}, this.$slots.default()) : null
     if (loading) {
       return h(as, { class: this.buttonClass, disabled: disabled }, loadingMode === "fill" ? loadingComponent : [
         loadingMode === "leading" && loadingComponent,
@@ -142,9 +146,9 @@ export const Button = defineComponent({
       }
     })
 
-    const textButtonClass = computed(() => {
+    const responsiveButtonClass = computed(() => {
       return styling && [
-        componentClasses.text,
+        componentClasses.responsive,
       ]
     })
 
@@ -163,7 +167,7 @@ export const Button = defineComponent({
     })
     return {
       buttonClass,
-      textButtonClass,
+      responsiveButtonClass,
       leadingIconClass,
       trailingIconClass,
     }

@@ -31,9 +31,10 @@ export default {
     },
   },
   button: {
-    base: "items-center px-4 py-2 border shadow-sm text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2",
+    base: "items-center px-4 py-2 border shadow-sm text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 space-x-2",
     block: "block w-full",
     inline: "inline-flex",
+    responsive: "hidden sm:inline",
     variants: {
       root: {
         fill: "focus:ring-indigo-500",
@@ -76,8 +77,8 @@ export default {
     // icon classes
     leadingIcon: "h-5 w-5",
     trailingIcon: "h-5 w-5",
-    iconMarginRight: "mr-2",
-    iconMarginLeft: "ml-2",
+    iconMarginRight: "",
+    iconMarginLeft: "",
   },
   icon: {
     base: "fill-current w-4 h-4",
