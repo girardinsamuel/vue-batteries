@@ -97,10 +97,10 @@ export const Alert = defineComponent({
 
     // Methods
     const close = (event) => {
+      emit("close", event)
       dismissed.value = true
       // for v-model to work
       emit("update:modelValue", false)
-      emit("close", event)
     }
     return {
       styling,
