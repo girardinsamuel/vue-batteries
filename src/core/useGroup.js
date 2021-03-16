@@ -53,7 +53,7 @@ export default (props, { emit }, multiple = false, valueAttr = "value", labelAtt
       internalValue.value = value
     }
     emit("update:modelValue", internalValue.value)
-    // emit("change", internalValue.value)
+    emit("change", internalValue.value)
   }
 
   const isSelected = (optionValue) => {
