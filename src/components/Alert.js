@@ -43,7 +43,7 @@ export const AlertProps = {
 export const Alert = defineComponent({
   name: "Alert",
   mixins: [AlertProps],
-  emits: ["update:modelValue"],
+  emits: ["update:modelValue", "close"],
   render () {
     const config = getConfig()
     if (this.hide) {
@@ -96,10 +96,11 @@ export const Alert = defineComponent({
     })
 
     // Methods
-    const close = () => {
+    const close = (event) => {
       dismissed.value = true
       // for v-model to work
       emit("update:modelValue", false)
+      emit("close", event)
     }
     return {
       styling,
