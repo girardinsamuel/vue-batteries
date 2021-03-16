@@ -1,4 +1,4 @@
-import { defineComponent, computed } from "vue"
+import { defineComponent, computed, ref } from "vue"
 import { baseProps } from "../utils/baseProps"
 import useBaseClasses from "../core/useClasses"
 
@@ -74,6 +74,28 @@ export const useClasses = (props, context, status) => {
   }
 }
 
+const useApi = (props, context, status) => {
+  // input value logic
+  const inputValue = ref(props.modelValue)
+  const onInput = event => {
+    inputValue.value = event.target.value
+    context.emit("update:modelValue", inputValue.value)
+  }
+  const onBlur = event => {
+    // to implement if needed
+  }
+  const helpText = ref(props.help)
+  const renderHelp = computed(() => { return helpText.value !== "" || "help" in context.slots })
+
+  return {
+    onInput,
+    onBlur,
+    helpText,
+    renderHelp,
+    inputValue,
+  }
+}
+
 export const Textarea = defineComponent({
   name: "Textarea",
   emits: ["update:modelValue"],
@@ -137,5 +159,6 @@ export const Textarea = defineComponent({
 
 export default {
   useClasses,
+  useApi,
   Textarea,
 }
