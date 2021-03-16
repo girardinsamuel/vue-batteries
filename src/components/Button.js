@@ -101,18 +101,19 @@ export const Button = defineComponent({
     const loadingComponent = h(CellIcon, { class: loadingMode === "trailing" ? this.trailingIconClass : loadingMode === "leading" ? this.leadingIconClass : "", name: "loading", loading: true })
     const trailingComponent = "trailing" in this.$slots ? this.$slots.trailing({ className: this.trailingIconClass }) : h(CellIcon, { class: this.trailingIconClass, name: this.trailingIcon })
     const leadingComponent = "leading" in this.$slots ? this.$slots.leading({ className: this.leadingIconClass }) : h(CellIcon, { class: this.leadingIconClass, name: this.leadingIcon })
+    const innerComponent = "default" in this.$slots ? h("span", { className: this.textButtonClass }, this.$slots.default()) : null
     if (loading) {
       return h(as, { class: this.buttonClass, disabled: disabled }, loadingMode === "fill" ? loadingComponent : [
         loadingMode === "leading" && loadingComponent,
         hasLeadingComponent && loadingMode === "trailing" && leadingComponent,
-        this.$slots.default(),
+        innerComponent,
         hasTrailingComponent && loadingMode === "leading" && trailingComponent,
         loadingMode === "trailing" && loadingComponent,
       ])
     } else {
       return h(as, { class: this.buttonClass }, [
         hasLeadingComponent && leadingComponent,
-        "default" in this.$slots && this.$slots.default(),
+        innerComponent,
         hasTrailingComponent && trailingComponent,
       ])
     }
@@ -140,6 +141,13 @@ export const Button = defineComponent({
         return [props.class]
       }
     })
+
+    const textButtonClass = computed(() => {
+      return styling && [
+        componentClasses.text,
+      ]
+    })
+
     const hasLabel = "default" in context.slots
     const leadingIconClass = computed(() => {
       return styling && [
@@ -155,6 +163,7 @@ export const Button = defineComponent({
     })
     return {
       buttonClass,
+      textButtonClass,
       leadingIconClass,
       trailingIconClass,
     }
