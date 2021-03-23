@@ -41,6 +41,9 @@ export default (props, { emit }, multiple = false, valueAttr = "value", labelAtt
   const toggle = event => {
     // TODO: in a group the toggle is applied always with a value isn't it ?
     // what about in select ? => add a select method
+    if (props.disabled) {
+      return
+    }
     const value = event.target.value
     if (multiple) {
       if (internalValue.value.includes(value)) {
