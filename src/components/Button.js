@@ -107,7 +107,7 @@ export const Button = defineComponent({
     const leadingComponent = "leading" in this.$slots ? this.$slots.leading({ className: this.leadingIconClass }) : h(CellIcon, { class: this.leadingIconClass, name: this.leadingIcon })
     const innerComponent = "default" in this.$slots ? h("span", this.responsive ? { className: this.responsiveButtonClass } : {}, this.$slots.default()) : null
     if (loading) {
-      return h(as, { class: this.buttonClass, disabled: disabled }, loadingMode === "fill" ? loadingComponent : [
+      return h(as, { class: this.buttonClass, disabled: disabled && "disabled" }, loadingMode === "fill" ? loadingComponent : [
         loadingMode === "leading" && loadingComponent,
         hasLeadingComponent && loadingMode === "trailing" && leadingComponent,
         innerComponent,
@@ -115,7 +115,7 @@ export const Button = defineComponent({
         loadingMode === "trailing" && loadingComponent,
       ])
     } else {
-      return h(as, { class: this.buttonClass, disabled: disabled }, [
+      return h(as, { class: this.buttonClass, disabled: disabled && "disabled" }, [
         hasLeadingComponent && leadingComponent,
         innerComponent,
         hasTrailingComponent && trailingComponent,
