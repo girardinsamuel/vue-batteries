@@ -115,7 +115,7 @@ export const Button = defineComponent({
         loadingMode === "trailing" && loadingComponent,
       ])
     } else {
-      return h(as, { class: this.buttonClass }, [
+      return h(as, { class: this.buttonClass, disabled: disabled }, [
         hasLeadingComponent && leadingComponent,
         innerComponent,
         hasTrailingComponent && trailingComponent,
