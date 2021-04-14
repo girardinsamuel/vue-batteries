@@ -1,17 +1,17 @@
 /** Behaviour used to provide different options and be able to select one or multiple. */
-import { ref } from "vue"
+import { ref, computed } from "vue"
 
 function isObject (objValue) {
   return objValue && typeof objValue === "object" && objValue.constructor === Object
 }
 
 export const normalizeOptions = (options, valueAttr, labelAttr) => {
-  const normalizedOptions = ref([])
+  let normalizedOptions = []
   if (Array.isArray(options)) {
     let objInArray = false
     options.forEach(opt => {
       if (typeof opt !== "object") {
-        normalizedOptions.value.push({
+        normalizedOptions.push({
           [valueAttr]: opt,
           [labelAttr]: opt,
           disabled: false,
@@ -21,11 +21,11 @@ export const normalizeOptions = (options, valueAttr, labelAttr) => {
       }
     })
     if (objInArray) {
-      normalizedOptions.value = options
+      normalizedOptions = options
     }
   } else if (isObject(options)) {
     Object.entries(options).forEach(([key, value]) => {
-      normalizedOptions.value.push({ [valueAttr]: key, [labelAttr]: value, disabled: false })
+      normalizedOptions.push({ [valueAttr]: key, [labelAttr]: value, disabled: false })
     })
   } else {
     return new Error("options must be an Array or an Object.")
@@ -34,7 +34,9 @@ export const normalizeOptions = (options, valueAttr, labelAttr) => {
 }
 
 export default (props, { emit }, multiple = false, valueAttr = "value", labelAttr = "label") => {
-  const normalizedOptions = normalizeOptions(props.options, valueAttr, labelAttr)
+  const normalizedOptions = computed(() => {
+    return normalizeOptions(props.options, valueAttr, labelAttr)
+  })
   // TODO: maybe init to []
   const internalValue = ref(multiple ? props.modelValue || [] : props.modelValue)
 
