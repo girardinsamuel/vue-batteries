@@ -81,10 +81,7 @@ const useApi = (props, context, status) => {
   const config = getConfig()
   // main behaviour
   const { normalizedOptions, value, toggle, isSelected } = useGroup(props, context, props.multiple, props.valueAttr, props.labelAttr)
-  // add default option for placeholder when defined
-  if (context.attrs.placeholder && normalizedOptions.value[0] !== "") {
-    normalizedOptions.value.unshift({ [props.valueAttr]: "", [props.labelAttr]: context.attrs.placeholder, disabled: true })
-  }
+
   // trailingIcon logic
   const trailingIconName = computed(() => {
     if (props.loading) {
