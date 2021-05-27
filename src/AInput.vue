@@ -18,7 +18,7 @@
         :type="type"
         v-model="value"
         :disabled="disabled"
-        class="shadow-sm  block w-full sm:text-sm rounded-md"
+        class="shadow-sm block w-full sm:text-sm rounded-md"
         :class="{
           'pl-10': !!leadingIcon,
           'pr-10': hasError || trailingIcon,
