@@ -1,61 +1,24 @@
-import { computed, ref, watch } from "vue"
+import { ref, computed } from "vue"
 
-export default (props, { emit }) => {
-  const internalValue = ref(props.modelValue)
-  // after mounted, input will hold $refs.input from template
-  const input = ref(null)
-  const isChecked = computed(() => {
-    if (props.modelValue === undefined) {
-      return props.checked
-    }
-    if (Array.isArray(props.modelValue)) {
-      return props.modelValue.indexOf(props.value) >= 0
-    }
-    return props.modelValue === internalValue.value
-  })
+export default (context, initialValue, values) => {
+  const internalValue = ref(initialValue || values[0])
 
-  watch(isChecked, (isChecked, previsChecked) => {
-    if (input.value.checked !== isChecked) {
-      input.value.checked = isChecked
-    }
-  })
-  // watchEffect(() => {
-  //   if (!input.value) {
-  //     return
-  //   }
-  //   if (input.value.checked !== isChecked.value) {
-  //     input.value.checked = isChecked.value
-  //   }
-  // })
-
-  const toggle = (event) => {
-    if (props.disabled) {
-      return
-    }
-    const isInputChecked = event.target.checked
-    let localValue
-    if (Array.isArray(props.modelValue)) {
-      const localValue = [...props.modelValue]
-      const index = localValue.indexOf(props.value)
-      if (isInputChecked && index < 0) {
-        localValue.push(props.value)
-      } else if (!isInputChecked && index >= 0) {
-        localValue.splice(index, 1)
-      }
+  const toggle = () => {
+    if (internalValue.value === values[0]) {
+      internalValue.value = values[1]
     } else {
-      localValue = isInputChecked ? props.value : props.uncheckedValue
+      internalValue.value = values[0]
     }
-    internalValue.value = localValue
-
-    emit("update:modelValue", internalValue.value)
-    emit("change", internalValue.value)
-    emit("update:checked", isInputChecked) // this.$emit('update:checked', isChecked);
+    context.emit("update:modelValue", internalValue.value)
+    context.emit("change", internalValue.value)
   }
+  const isChecked = computed(() => internalValue.value === values[1])
 
   return {
+    // state
+    value: internalValue,
+    // methods
     toggle,
     isChecked,
-    internalValue,
-    input,
   }
 }

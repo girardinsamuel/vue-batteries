@@ -54,8 +54,12 @@ export const Button = defineComponent({
       type: String,
       default: "fill",
       validator: function (value) {
-        return ["fill", "outline", "link"].indexOf(value) !== -1
+        return ["fill", "outline", "link", "dashed"].indexOf(value) !== -1
       },
+    },
+    rounded: {
+      type: Boolean,
+      default: false,
     },
     variant: {
       type: String,
@@ -135,6 +139,7 @@ export const Button = defineComponent({
           componentClasses.base,
           componentClasses.variants.root[props.mode],
           props.disabled ? componentClasses.variants.root.disabled : "",
+          props.rounded ? componentClasses.rounded : "",
           props.variant
             ? componentClasses.variants[props.variant][props.mode]
             : "",

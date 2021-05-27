@@ -119,3 +119,29 @@ export const valuesProps = {
     // TODO: is it possible to validate that values must be of length 2 ?
   },
 }
+
+export const inputIconProps = {
+  leadingIcon: {
+    type: String,
+    default: "",
+  },
+  trailingIcon: {
+    type: String,
+    default: "",
+  },
+}
+
+export const inputProps = {
+  label: {
+    type: String,
+    default: "",
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+  help: {
+    type: String,
+    default: "",
+  },
+}
