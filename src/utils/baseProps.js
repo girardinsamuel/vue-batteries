@@ -144,4 +144,8 @@ export const inputProps = {
     type: String,
     default: "",
   },
+  required: {
+    type: Boolean,
+    default: false,
+  },
 }
