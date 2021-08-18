@@ -1,6 +1,6 @@
 import { ref, computed, onMounted } from "vue"
 
-export default (inputFileRef, previewRef, initialFile = null, placeholderFile = null, acceptedMimeTypes = "image/*", maxSize = 5 * 1024 * 1024) => {
+export default (inputFileRef, previewRef = null, initialFile = null, placeholderFile = null, acceptedMimeTypes = "image/*", maxSize = 5 * 1024 * 1024) => {
   const currentFile = ref()
   const currentFileError = ref("")
 
@@ -18,13 +18,17 @@ export default (inputFileRef, previewRef, initialFile = null, placeholderFile = 
       return
     }
     // TODO: check file type
-    previewRef.value.src = URL.createObjectURL(file)
+    if (previewRef) {
+      previewRef.value.src = URL.createObjectURL(file)
+    }
     currentFile.value = file
   }
 
   const removeFile = (event) => {
     currentFile.value = null
-    previewRef.value.src = placeholderFile
+    if (previewRef) {
+      previewRef.value.src = placeholderFile
+    }
     // reset error
     currentFileError.value = ""
   }
@@ -47,7 +51,9 @@ export default (inputFileRef, previewRef, initialFile = null, placeholderFile = 
   })
 
   onMounted(() => {
-    previewRef.value.src = initialFile || placeholderFile
+    if (previewRef) {
+      previewRef.value.src = initialFile || placeholderFile
+    }
   })
 
   const hasFilePreview = computed(() => {
