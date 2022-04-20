@@ -41,7 +41,7 @@ export default (context, initialValue, options, multiple = false, valueAttr = "v
   const externalValue = ref(multiple ? initialValue.value || [] : initialValue.value || null)
   const internalValue = computed({
     get () {
-      return multiple ? initialValue.value || [] : initialValue.value || null
+      return multiple ? initialValue.value || [] : initialValue.value === null ? null : initialValue.value
     },
     set (value) {
       context.emit("update:modelValue", value)
